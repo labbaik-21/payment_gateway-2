@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Payment</title>
+    <style>
+        .payment-container {
+            max-width: 343px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: Roboto;
+        }
+
+        .account-info {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid #EF5E00;
+            /* bKash color */
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            display: block;
+        }
+
+        button {
+            background-color: #EF5E00;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .input1 {
+            width: 320px;
+        }
+
+        .select1 {
+            width: 115px;
+            padding: 10px 0px 10px 10px;
+            margin: 10px 0;
+            display: block;
+        }
+
+        .bkash-logo {
+            height: 50px;
+            width: 70px;
+            object-fit: contain;
+            object-position: center;
+            max-width: 100%;
+            max-height: 100%;
+            vertical-align: middle;
+        }
+        .nagad-logo {
+            height: 50px;
+            width: 70px;
+            object-fit: contain;
+            object-position: center;
+            max-width: 100%;
+            max-height: 100%;
+            vertical-align: middle; 
+            margin-left: -2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-container">
+        <h2>Payment (bKash / Nagad)</h2>
+        <p>নিচের যেকোনো একটি নম্বরে <strong>Send Money</strong> করুন:</p>
+
+        <div class="account-info">
+            <p>
+                <img class="bkash-logo"src="bkash.png" alt="">
+                <strong> (Personal):</strong> 01707242482</p>
+            <p>
+               <img class="nagad-logo"src="nagad.svg" alt=""> 
+                <strong> (Personal):</strong> 01615581513</p>
+        </div>
+
+        <form action="process_payment.php" method="POST">
+            <label> <strong>Select Method:</strong></label>
+            <select class="select1 " name="payment_method" required>
+                <option value="bkash">bKash</option>
+                <option value="nagad">Nagad</option>
+            </select>
+
+            <label><strong>Your Phone Number:</strong></label>
+            <input class="input1" type="text" name="customer_number" placeholder="017XXXXXXXX" required>
+
+            <label><strong>Transaction ID (TrxID):</strong></label>
+            <input class="input1" type="text" name="transaction_id" placeholder="XXXXXXXX" required>
+
+            <button type="submit">Confirm Order</button>
+        </form>
+    </div>
+</body>
+
+</html>
